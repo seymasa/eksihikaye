@@ -16,6 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from stories.views import (index, sign_in_user, login_user, logout_user, story_detail) #(viewstekileri yazcaz burya)
+
 urlpatterns = [
+    url(r'^stories/(?P<story_id>[0-9]+)/$', story_detail, name='story_detail'),
+    url(r'^sign_in$', sign_in_user, name='sign_in'),
+    url(r'^login$', login_user, name='login'),
+    url(r'^logout$', logout_user, name='logout'),
+    url(r'^$', index, name='home'),
+
     url(r'^admin/', include(admin.site.urls)),
+
 ]
+"""
+viewstekilerin url leri
+
+"""

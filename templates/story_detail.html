@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Title = {{ object.title }} <br>
+    Story = {{ object.story }} <br>
+    {% if object.release_date %}
+        Release Date = {{ object.release_date }} <br>
+    {% endif %}
+    Avg. Score = {{ object.avg_score|floatformat }} <br>
+    Genres = {{ object.genres_verbose }} <br>
+
+    <table>
+        <tr>
+            <th>XXX</th>
+            <th>YYY</th>
+
+
+    </table>
+{% endblock %}

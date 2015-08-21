@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+    <form action="." method="get">
+        <p>
+            <input type="text" name="title" placeholder="keywords">
+            <input type="submit" value="search">
+        </p>
+    </form>
+    <table>
+
+        {% for obj in objects %}
+            <div class="post">
+                <div class="title">
+
+                    <a href="{% url "story_detail" obj.id %}">{{ obj.title }}</a>
+                    <p>{{ obj.story }}</p>
+                    {% for genre in obj.genres.all %}
+                        {{ genre }}{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endfor %}
+    </table>
+{% endblock %}

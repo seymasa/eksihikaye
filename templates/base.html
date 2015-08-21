@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>writeastory</title>
+    <style type="text/css">
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 700px;
+            margin: auto;
+            background-color: #F9F0E1;
+        }
+
+        th, td {
+            border: 1px solid #00A885;
+            padding: 10px;
+        }
+
+        header, footer {
+            padding: 30px;
+            background: #3BB8DA;
+        }
+
+        footer {
+            margin-top: 30px;
+        }
+
+        header h3 {
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        header ul {
+            margin: 20px 0 0 20px;
+            padding: 0;
+        }
+
+        header ul li {
+            float: left;
+            margin-right: 30px;
+            list-style: none;
+        }
+
+        header ul li a {
+            color: white;
+        }
+
+        header ul {
+            overflow: hidden;
+        }
+
+        #container {
+            margin-top: 20px;
+        }
+
+        .helptext {
+            display: block;
+            color: #54ACD2;
+        }
+
+    .post {
+    border-top: 3px dashed #3D8EB9;
+    margin-top: 30px;
+    padding-top: 30px;
+    }
+
+    .post .first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    }
+
+    .post .title {
+    font-size: 24px;
+    }
+
+    .post .title a {
+    text-decoration: none;
+    color: #3D8EB9;
+    }
+
+    .post p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <h3>Write a Story</h3>
+        <nav>
+            <ul>
+                <li><a href="{% url "home" %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url "logout" %}">Logout</a></li>
+                    <li>Merhaba {{ user }}</li>
+                {% else %}
+                    <li><a href="{% url "sign_in" %}">SIGN IN</a></li>
+                    <li><a href="{% url "login" %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+</header>
+<section id="container">
+    {% block content %}
+    {% endblock %}
+</section>
+<footer>
+    All rights reserved 2015 - LYK
+</footer>
+</body>
+</html>
